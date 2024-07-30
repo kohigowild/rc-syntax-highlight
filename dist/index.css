@@ -1,0 +1,29 @@
+.code-container {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow: auto;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.keyword {
+  color: #2e95d3;
+}
+
+.string {
+  color: #00a67d;
+}
+
+.comment {
+  color: #00a67d;
+  font-style: italic;
+}
+
+.method {
+  color: #df3079;
+}
+
+.parameter {
+  color: #00a67d;
+}

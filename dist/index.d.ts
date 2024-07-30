@@ -1,5 +1,5 @@
 import React from 'react';
-import '../lib/index.css';
+import './index.css';
 interface SyntaxHighlighterProps {
     code: string;
 }

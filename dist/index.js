@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import '../lib/index.css';
+import './index.css';
 var patterns = {
     comment: /(\/\/.*?$|\/\*[\s\S]*?\*\/)/g,
     string: /(?:\/\/.*$)|(?:\/\*[\s\S]*?\*\/)|(?:<!--[\s\S]*?-->)/g,

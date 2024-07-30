@@ -1,9 +1,13 @@
 {
   "name": "rc-syntax-highlight",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "private": false,
   "main": "dist/index.js",
+  "style": "dist/index.css",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "browser": "./browser/specific/main.js",
   "description": "simple code block components",
   "repository": {
@@ -26,10 +30,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "tsc && cp src/lib/*.css dist/",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "prepare": "rm -rf dist && mkdir dist && tsc && cp src/lib/*.css dist/"
   },
   "eslintConfig": {
     "extends": [
