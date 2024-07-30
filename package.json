@@ -1,11 +1,15 @@
 {
   "name": "rc-syntax-highlight",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "description": "simple code block components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kohigowild/rc-syntax-highlight"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
