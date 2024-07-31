@@ -1,6 +1,6 @@
 {
   "name": "rc-syntax-highlight",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "main": "dist/index.js",
   "style": "dist/index.css",

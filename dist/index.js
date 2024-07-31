@@ -10,46 +10,21 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { useState, useEffect } from 'react';
+import { convertJSCode } from './rules/lang-js-rules';
+import { convertPythonCode } from './rules/lang-py-rules';
 import './index.css';
-var patterns = {
-    comment: /(\/\/.*?$|\/\*[\s\S]*?\*\/)/g,
-    string: /(?:\/\/.*$)|(?:\/\*[\s\S]*?\*\/)|(?:<!--[\s\S]*?-->)/g,
-    keyword: /\b(const|let|var|function|if|else|return|for|while|do|switch|case|break|continue|default|throw|try|catch|finally|new|class|extends|super|import|from|export|as|async|await|static|get|set)\b/g,
-    method: /\b\w+(?=\()/g,
-    parameter: /(?<=\()\s*[\w\s,]+(?=\))/g,
-};
-var escapeHtml = function (text) {
-    var map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;',
-    };
-    return text.replace(/[&<>"']/g, function (m) { return map[m]; });
-};
-var highlight = function (code) {
-    code = escapeHtml(code);
-    var replacements = [
-        { regex: patterns.comment, className: 'comment' },
-        { regex: patterns.string, className: 'string' },
-    ];
-    replacements.forEach(function (_a) {
-        var regex = _a.regex, className = _a.className;
-        code = code.replace(regex, function (match) { return "<span class=\"".concat(className, "\">").concat(match, "</span>"); });
-    });
-    code = code.replace(patterns.keyword, '<span class="keyword">$&</span>');
-    code = code.replace(patterns.method, '<span class="method">$&</span>');
-    code = code.replace(patterns.parameter, function (match) {
-        return "<span class=\"parameter\">".concat(match
-            .trim()
-            .replace(/(\s*,\s*)+/g, '</span>, <span class="parameter">'), "</span>");
-    });
-    return code;
-};
 var CodeBlock = function (_a) {
-    var code = _a.code;
-    var highlightedCode = highlight(code);
+    var lang = _a.lang, code = _a.code;
+    var _b = useState(''), highlightedCode = _b[0], setHighlightedCode = _b[1];
+    useEffect(function () {
+        if (lang.toLowerCase() === 'javascript') {
+            setHighlightedCode(convertJSCode(code));
+        }
+        else if (lang.toLowerCase() === 'python') {
+            setHighlightedCode(convertPythonCode(code));
+        }
+    }, []);
     return (_jsx("pre", __assign({ className: 'code-container' }, { children: _jsx("code", { dangerouslySetInnerHTML: { __html: highlightedCode } }) })));
 };
 export default CodeBlock;
