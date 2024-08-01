@@ -7,7 +7,10 @@
   font-family: 'Source Code Pro', monospace;
 }
 
-.keyword,
+.keyword {
+  color: #2e95d3;
+}
+
 .boolean {
   color: #2e95d3;
 }
@@ -17,18 +20,30 @@
   font-style: italic;
 }
 
-.string,
+.string {
+  color: #00a67d;
+}
+
 .parameter {
   color: #00a67d;
 }
 
-.method,
+.method {
+  color: #df3079;
+}
+
 .key {
   color: #df3079;
 }
 
-.null,
-.number,
+.null {
+  color: #e9950c;
+}
+
+.number {
+  color: #e9950c;
+}
+
 .command {
   color: #e9950c;
 }
