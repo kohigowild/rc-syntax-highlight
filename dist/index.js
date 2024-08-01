@@ -13,6 +13,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useState, useEffect } from 'react';
 import { convertJSCode } from './rules/lang-js-rules';
 import { convertPythonCode } from './rules/lang-py-rules';
+import { convertBashCode } from './rules/lang-bash-rules';
+import { convertJsonCode } from './rules/lang-json-rules';
 import './index.css';
 var CodeBlock = function (_a) {
     var lang = _a.lang, code = _a.code;
@@ -23,6 +25,12 @@ var CodeBlock = function (_a) {
         }
         else if (lang.toLowerCase() === 'python') {
             setHighlightedCode(convertPythonCode(code));
+        }
+        else if (lang.toLowerCase() === 'bash') {
+            setHighlightedCode(convertBashCode(code));
+        }
+        else if (lang.toLowerCase() === 'json') {
+            setHighlightedCode(convertJsonCode(code));
         }
     }, []);
     return (_jsx("pre", __assign({ className: 'code-container' }, { children: _jsx("code", { dangerouslySetInnerHTML: { __html: highlightedCode } }) })));
